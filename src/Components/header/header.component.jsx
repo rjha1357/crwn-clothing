@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+<<<<<<< HEAD
 import { createStructuredSelector } from 'reselect';
 import { auth } from '../../firebase/firebase.utils';
 import CartIcon from '../cart-icon/cart-icon.component';
@@ -8,6 +9,12 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selector';
+=======
+import { auth } from '../../firebase/firebase.utils';
+import { ReactComponent as Logo } from '../../assets/crown.svg';
+import CartIcon from '../cart-icon/cart-icon.components';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+>>>>>>> ba24d945bbf902d82fa891b2cc4d251df722764d
 
 import './header.style.scss';
 
@@ -24,6 +31,7 @@ const Header = ({ currentUser, hidden }) => (
                 Contact
             </Link>
             {
+<<<<<<< HEAD
                 currentUser ? (
                     <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
                 ) : (
@@ -36,10 +44,24 @@ const Header = ({ currentUser, hidden }) => (
             hidden ? null : <CartDropdown />
         }
 
+=======
+                currentUser ?(
+                    <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
+        ) :(
+        <Link className='option' to='/signin'>SIGN IN</Link>
+                )}
+        <CartIcon />
     </div>
+        {
+    hidden ? null : <CartDropdown />
+}
+        
+>>>>>>> ba24d945bbf902d82fa891b2cc4d251df722764d
+    </div >
 );
 
 // 'mapStateToProps' can be named anything , but these is a standard with redux codebase.
+<<<<<<< HEAD
 /*  const mapStateToProps = state => ({
       currentUser: state.user.currentUser
   })  */
@@ -59,6 +81,11 @@ const Header = ({ currentUser, hidden }) => (
 const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser,
     hidden: selectCartHidden
+=======
+const mapStateToProps = ({user: {currentUser}, cart:{hidden}}) => ({
+    currentUser,
+    hidden
+>>>>>>> ba24d945bbf902d82fa891b2cc4d251df722764d
 })
 
 export default connect(mapStateToProps)(Header);

@@ -1,16 +1,24 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+<<<<<<< HEAD
 import { createStructuredSelector } from 'reselect';
+=======
+>>>>>>> ba24d945bbf902d82fa891b2cc4d251df722764d
 import './App.css';
 import Header from './Components/header/header.component';
 import HomePage from './Pages/homepage/homepage.component';
 import ShopPage from './Pages/shop/shop.component';
 import SignInAndSignUpPage from './Pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
+<<<<<<< HEAD
 import CheckoutPage from './Pages/checkout/checkout.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selector';
+=======
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { setCurrentUser } from './redux/user/user.actions';
+>>>>>>> ba24d945bbf902d82fa891b2cc4d251df722764d
 
 
 class App extends React.Component {
@@ -69,7 +77,10 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
+<<<<<<< HEAD
           <Route exact path='/checkout' component={CheckoutPage} />
+=======
+>>>>>>> ba24d945bbf902d82fa891b2cc4d251df722764d
           <Route exact path='/signin' render={() =>
             this.props.currentUser ? (<Redirect to='/' />)
               :
@@ -83,6 +94,7 @@ class App extends React.Component {
 
 }
 
+<<<<<<< HEAD
 /*  const mapStateProps = ({ user }) => ({
     currentUser: user.currentUser
   }); */
@@ -91,6 +103,12 @@ const mapStateProps = createStructuredSelector({
 });
 
 
+=======
+const mapStateProps = ({ user }) => ({
+  currentUser: user.currentUser
+});
+
+>>>>>>> ba24d945bbf902d82fa891b2cc4d251df722764d
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
